@@ -1,11 +1,24 @@
 package hh.swd02.bookstore.domain;
 
-public class Book {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-	private String title;
-	private String author;
+@Entity
+public class Book {
+	
+	// Automatically generate id for new objects
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+	
+	private String title, author, isbn;
+	
+	@Column(name = "\"year\"")
 	private int year;
-	private String isbn;
+	
 	private double price;
 	
 	// Constructors
@@ -18,18 +31,16 @@ public class Book {
 		this.price = price;
 	}
 	
-	public Book() {
-		super();
-		this.title = null;
-		this.author = null;
-		this.year = 0;
-		this.isbn = null;
-		this.price = 0.0;
-	}
+	public Book() {}
 
 	// Setters
+	
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public void setAuthor(String author) {
@@ -49,6 +60,7 @@ public class Book {
 	}
 
 	// Getters
+	
 	public String getTitle() {
 		return title;
 	}
