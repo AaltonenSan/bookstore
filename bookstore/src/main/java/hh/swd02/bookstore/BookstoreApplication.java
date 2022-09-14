@@ -26,9 +26,9 @@ public class BookstoreApplication {
 	public CommandLineRunner demo(BookRepository repository) {
 		return (args) -> {
 			log.info("Create and insert test objects to database");
-			repository.save(new Book("Kirja", "Kirjailija", 1990, "5124", 44.95));
-			repository.save(new Book("Aku Ankka", "Don Rosa", 1986, "313", 20.00));
-			repository.save(new Book("Vares", "Reijo Mäki", 2007, "5678", 14.99));
+			repository.save(new Book("If It's Smart, It's Vulnerable", "Mikko Hyppönen", 2022, "9781119895183", 23.50));
+			repository.save(new Book("No Longer Human", "Osamu Dazai", 1973, "9780811204811", 16.80));
+			repository.save(new Book("Sheriffi", "Reijo Mäki", 2013, "9789511272298", 8.10));
 			
 			
 			log.info("Select * from book");
