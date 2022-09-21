@@ -12,10 +12,13 @@ public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	
 	private String title, author, isbn;
 	private Double price;
+	
 	@Column(name = "\"year\"")
 	private Integer year;
+	
 	// Constructors
 	public Book(String title, String author, Integer year, String isbn, Double price) {
 		super();
@@ -26,6 +29,7 @@ public class Book {
 		this.price = price;
 	}
 	public Book() {}
+	
 	// Setters
 	public void setId(Long id) {
 		this.id = id;
@@ -45,6 +49,7 @@ public class Book {
 	public void setPrice(Double price) {
 		this.price = price;
 	}
+	
 	// Getters
 	public Long getId() {
 		return id;
@@ -64,6 +69,7 @@ public class Book {
 	public Double getPrice() {
 		return price;
 	}
+	
 	@Override
 	public String toString() {
 		return "Book id=" + id + ", title=" + title + ", author=" + author + ", year=" + year + ", isbn=" + isbn + ", price=" + price;
