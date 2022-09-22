@@ -1,6 +1,5 @@
 package hh.swd02.bookstore.domain;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,8 +14,6 @@ public class Book {
 	
 	private String title, author, isbn;
 	private Double price;
-	
-	@Column(name = "\"year\"")
 	private Integer year;
 	
 	// Constructors
