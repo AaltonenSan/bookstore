@@ -32,9 +32,9 @@ public class BookstoreApplication {
 			crepository.save(new Category("Science"));
 			
 			log.info("Save some sample books");
-			repository.save(new Book("If It's Smart, It's Vulnerable", "Mikko Hyppönen", 2022, "9781119895183", 23.50));
-			repository.save(new Book("No Longer Human", "Osamu Dazai", 1973, "9780811204811", 16.80));
-			repository.save(new Book("Sheriffi", "Reijo Mäki", 2013, "9789511272298", 8.10));
+			repository.save(new Book("If It's Smart, It's Vulnerable", "Mikko Hyppönen", 2022, "9781119895183", 23.50, crepository.findByName("Science").get(0)));
+			repository.save(new Book("No Longer Human", "Osamu Dazai", 1973, "9780811204811", 16.80, crepository.findByName("Fiction").get(0)));
+			repository.save(new Book("Sheriffi", "Reijo Mäki", 2013, "9789511272298", 8.10, crepository.findByName("Crime").get(0)));
 			
 			log.info("Fetch all the categories");
 			for (Category category : crepository.findAll()) {
