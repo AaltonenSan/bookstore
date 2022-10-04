@@ -7,6 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 public class Book {
 	// Automatically generate id for new objects
@@ -19,6 +21,7 @@ public class Book {
 	
 	@ManyToOne
 	@JoinColumn(name = "categoryid")
+	@JsonIgnoreProperties("books")
 	private Category category;
 	
 	// Constructors
