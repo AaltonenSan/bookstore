@@ -13,6 +13,8 @@ import hh.swd02.bookstore.domain.Book;
 import hh.swd02.bookstore.domain.BookRepository;
 import hh.swd02.bookstore.domain.Category;
 import hh.swd02.bookstore.domain.CategoryRepository;
+import hh.swd02.bookstore.domain.User;
+import hh.swd02.bookstore.domain.UserRepository;
 
 @SpringBootApplication
 public class BookstoreApplication {
@@ -24,7 +26,7 @@ public class BookstoreApplication {
 	
 	// Database testing, remove spring.jpa.show-sql=true on application.properties to disable Hibernate logs
 	@Bean
-	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository) {
+	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
 			log.info("Save some sample categories");
 			crepository.save(new Category("Crime"));
@@ -37,14 +39,10 @@ public class BookstoreApplication {
 			repository.save(new Book("Sheriffi", "Reijo Mäki", 2013, "9789511272298", 8.10, crepository.findByName("Crime").get(0)));
 			repository.save(new Book("Hotel California", "Reijo Mäki", 2022, "9789511433194", 24.95, crepository.findByName("Crime").get(0)));
 			
-			log.info("Fetch all the categories");
-			for (Category category : crepository.findAll()) {
-				log.info(category.toString());
-			}
-			log.info("Fetch all the books");
-			for (Book book : repository.findAll()) {
-				log.info(book.toString());
-			}
+			// Passwords are same as usernames
+			log.info("Save some users");
+			urepository.save(new User("user", "$2a$10$uMW1kWBCVkGI27catUr2HOu1.YN17RxmdmtN1yG3.K9JJRLECp7ya", "user@email.com", "USER"));
+			urepository.save(new User("admin", "$2a$10$vQ.l4pvcZIvCusDEmbvvKOgLkcuDO0cxt2kJsrNY0PCf0P36JgKM2", "admin@bookstore.com", "ADMIN"));
 		};
 	};
 

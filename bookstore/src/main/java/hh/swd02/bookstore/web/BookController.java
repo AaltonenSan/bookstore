@@ -56,7 +56,7 @@ private CategoryRepository crepository;
 		return "addbook";
 	}
 	
-	@PreAuthorize(value="hasRole('ADMIN')")
+	@PreAuthorize(value="hasAuthority('ADMIN')")
 	@GetMapping("/delete/{id}")
 	public String deleteBook(@PathVariable("id") Long bookId, Model model) {
 		repository.deleteById(bookId);
