@@ -35,6 +35,7 @@ public class BookstoreApplication {
 			repository.save(new Book("If It's Smart, It's Vulnerable", "Mikko Hyppönen", 2022, "9781119895183", 23.50, crepository.findByName("Science").get(0)));
 			repository.save(new Book("No Longer Human", "Osamu Dazai", 1973, "9780811204811", 16.80, crepository.findByName("Fiction").get(0)));
 			repository.save(new Book("Sheriffi", "Reijo Mäki", 2013, "9789511272298", 8.10, crepository.findByName("Crime").get(0)));
+			repository.save(new Book("Hotel California", "Reijo Mäki", 2022, "9789511433194", 24.95, crepository.findByName("Crime").get(0)));
 			
 			log.info("Fetch all the categories");
 			for (Category category : crepository.findAll()) {
