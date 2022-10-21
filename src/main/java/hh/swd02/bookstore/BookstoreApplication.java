@@ -28,19 +28,20 @@ public class BookstoreApplication {
 	@Bean
 	public CommandLineRunner demo(BookRepository repository, CategoryRepository crepository, UserRepository urepository) {
 		return (args) -> {
-			log.info("Save some sample categories");
-			crepository.save(new Category("Crime"));
-			crepository.save(new Category("Fiction"));
-			crepository.save(new Category("Science"));
-			
-			log.info("Save some sample books");
-			repository.save(new Book("If It's Smart, It's Vulnerable", "Mikko Hyppönen", 2022, "9781119895183", 23.50, crepository.findByName("Science").get(0)));
-			repository.save(new Book("No Longer Human", "Osamu Dazai", 1973, "9780811204811", 16.80, crepository.findByName("Fiction").get(0)));
-			repository.save(new Book("Sheriffi", "Reijo Mäki", 2013, "9789511272298", 8.10, crepository.findByName("Crime").get(0)));
-			repository.save(new Book("Hotel California", "Reijo Mäki", 2022, "9789511433194", 24.95, crepository.findByName("Crime").get(0)));
+//			log.info("Save some sample categories");
+//			crepository.save(new Category("Crime"));
+//			crepository.save(new Category("Fiction"));
+//			crepository.save(new Category("Science"));
+//			
+//			log.info("Save some sample books");
+//			repository.save(new Book("If It's Smart, It's Vulnerable", "Mikko Hyppönen", 2022, "9781119895183", 23.50, crepository.findByName("Science").get(0)));
+//			repository.save(new Book("No Longer Human", "Osamu Dazai", 1973, "9780811204811", 16.80, crepository.findByName("Fiction").get(0)));
+//			repository.save(new Book("Sheriffi", "Reijo Mäki", 2013, "9789511272298", 8.10, crepository.findByName("Crime").get(0)));
+//			repository.save(new Book("Hotel California", "Reijo Mäki", 2022, "9789511433194", 24.95, crepository.findByName("Crime").get(0)));
 			
 			// Passwords are same as usernames
 			log.info("Save some users");
+			urepository.deleteAll();
 			urepository.save(new User("user", "$2a$10$uMW1kWBCVkGI27catUr2HOu1.YN17RxmdmtN1yG3.K9JJRLECp7ya", "user@email.com", "USER"));
 			urepository.save(new User("admin", "$2a$10$vQ.l4pvcZIvCusDEmbvvKOgLkcuDO0cxt2kJsrNY0PCf0P36JgKM2", "admin@bookstore.com", "ADMIN"));
 		};

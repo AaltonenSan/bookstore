@@ -26,7 +26,7 @@ private BookRepository repository;
 @Autowired
 private CategoryRepository crepository;
 
-	@GetMapping("/index")
+	@GetMapping("/")
 	public String showIndex(Model model) {
 		return "bookstore";
 	}
