@@ -25,6 +25,8 @@ public class WebSecurityConfig {
 		http
 			.authorizeHttpRequests()
 				.antMatchers("/h2-console/**").permitAll()
+				.antMatchers("/").permitAll()
+				.antMatchers("/css/**").permitAll()
 				.anyRequest().authenticated()
 				.and()
 			.csrf().ignoringAntMatchers("/h2-console/**")

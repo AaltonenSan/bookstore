@@ -3,8 +3,12 @@
 <head>
 <title>Bookstore</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-	<h1>Welcome to the bookstore!</h1>
+	<div style="text-align:center">
+		<h1>Welcome to the bookstore!</h1>
+		<a th:href="@{/booklist}" class="btn btn-danger">ENTER</a>
+	</div>
 </body>
 </html>
